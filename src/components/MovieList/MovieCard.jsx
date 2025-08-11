@@ -2,26 +2,29 @@ import React from "react";
 import "./MovieCard.css";
 import { FaStar } from "react-icons/fa6";
 
-const MovieCard = () => {
+const MovieCard = ({ movie }) => {
   return (
-    <a href="" className="movie-card">
+    <a
+      href={`https://www.themoviedb.org/movie/${movie.id}`}
+      target="_blank"
+      className="movie-card"
+    >
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReWoXR4SQXbCwXRNc-oLsU66ArBMOG9jPUpw&s"
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt="movie poster"
         className="movie-poster"
       />
 
       <div className="movie-details">
-        <h3 className="movie-details-heading">Movie Name</h3>
+        <h3 className="movie-details-heading">{movie.original_title}</h3>
         <div className="align_center movie-date-rate">
-          <p>10-10-20</p>
+          <p>{movie.release_date}</p>
           <p>
-            8.0 <FaStar className="card-emoji" />
+            {movie.vote_average} <FaStar className="card-emoji" />
           </p>
         </div>
         <p className="movie-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, officia
-          hic. Illum dolorem reiciendis asperiores.
+          {movie.overview.slice(0, 100) + "..."}
         </p>
       </div>
     </a>
