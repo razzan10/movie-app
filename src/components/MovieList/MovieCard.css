@@ -1,5 +1,7 @@
 .movie-card {
   width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   height: 300px;
   margin: 15px;
   overflow: hidden;
@@ -7,7 +9,8 @@
   color: #fff;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
   position: relative;
-  transition: all 0.2 ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0; /* Biar gak dipaksa resize sama parent */
 }
 
 .movie-card:hover {
@@ -17,6 +20,7 @@
 .movie-poster {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Biar poster tetap proporsional */
 }
 
 .movie-details {
@@ -30,7 +34,7 @@
   flex-direction: column;
   justify-content: end;
   opacity: 0;
-  transition: all 0.2 ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .movie-card:hover .movie-details {
