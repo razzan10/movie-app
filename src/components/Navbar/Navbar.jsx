@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { FaChartLine, FaClapperboard, FaStar } from "react-icons/fa6";
+import { AiFillCaretRight } from "react-icons/ai";
 
 const Navbar = ({ onCategoryChange, activeCategory }) => {
   const handleClick = (e, category) => {
@@ -36,6 +37,14 @@ const Navbar = ({ onCategoryChange, activeCategory }) => {
         >
           Coming Soon
           <FaClapperboard className="navbar-emoji" />
+        </a>
+        <a
+          href="#now_playing"
+          onClick={(e) => handleClick(e, "now_playing")}
+          className={activeCategory === "now_playing" ? "active" : ""}
+        >
+          Now Playing
+          <AiFillCaretRight className="navbar-emoji" />
         </a>
       </div>
     </nav>
